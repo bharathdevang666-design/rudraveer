@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudraveer | Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0f1e;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 30px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #00d4ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+        }
+
+        .logo span {
+            color: #ff3366;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #00d4ff, #ff3366);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #b0b8d0;
+            max-width: 600px;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff3366, #ff9933);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(255, 51, 102, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px 15px;
+            min-width: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #00d4ff;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b0b8d0;
+            margin-top: 5px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: #b0b8d0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .image-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .image-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 30, 0.85);
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Notify Section */
+        .notify-section {
+            padding: 80px 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            margin-bottom: 80px;
+        }
+
+        .notify-form {
+            max-width: 500px;
+            margin: 40px auto 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 18px 25px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .email-input:focus {
+            border-color: #00d4ff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .notify-button {
+            background: linear-gradient(45deg, #ff3366, #ff9933);
+            color: white;
+            border: none;
+            padding: 0 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .notify-button:hover {
+            transform: scale(1.05);
+        }
+        /* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 32px;
+    font-weight: 800;
+    color: #00d4ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #ff3366;
+}
+
+/* For Option 1: Icon */
+.logo-icon {
+    font-size: 36px;
+    color: #ff3366;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* For Option 2: Image */
+.logo-img {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
+}
+
+/* For Option 3: SVG */
+.logo-svg {
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
+}
+
+/* Navigation Option (if you want to add menu later) */
+.nav-links {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.nav-links a {
+    color: #b0b8d0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #00d4ff;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #00d4ff, #ff3366);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #b0b8d0;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: #b0b8d0;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00d4ff;
+            transform: translateY(-3px);
+        }
+
+        /* Background Elements */
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 51, 102, 0.15) 0%, rgba(255, 51, 102, 0) 70%);
+            z-index: 1;
+        }
+
+        .bg-1 {
+            width: 500px;
+            height: 500px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .bg-2 {
+            width: 300px;
+            height: 300px;
+            bottom: 100px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0) 70%);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px 10px;
+            }
+            
+            .countdown-value {
+                font-size: 2rem;
+            }
+            
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .notify-form {
+                flex-direction: column;
+            }
+            
+            .email-input, .notify-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="container">
+    <div class="header-content">
+        <div class="logo">
+            <i class="fas fa-dumbbell logo-icon"></i>
+            Rudra<span>Veer</span>
+        </div>
+        
+        <!-- Optional navigation for future pages -->
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#" style="color: #ff3366; font-weight: 700;">Coming Soon</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </div>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div class="hero-content">
+            <div class="coming-soon">Coming Soon</div>
+            <h1>Transform Your Body, Transform Your Life</h1>
+            <p>We're building an exclusive fitness platform that will revolutionize your workout routine. Get ready for personalized training plans, nutrition guidance, and a community that motivates you to reach your goals.</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            
+            <button class="cta-button" id="notifyBtn">Notify Me When It's Live</button>
+        </div>
+        
+        <!-- Background Elements -->
+        <div class="bg-element bg-1"></div>
+        <div class="bg-element bg-2"></div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery container">
+        <h2 class="section-title">Our Fitness Philosophy</h2>
+        <p class="section-subtitle">We believe fitness is a journey, not a destination. Our approach combines strength, endurance, and mindfulness for holistic wellness.</p>
+        
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="img1.png" alt="Strength Training">
+                <div class="image-caption">Strength Training</div>
+            </div>
+            <div class="image-item">
+                <img src="img2.png" alt="Cardio Fitness">
+                <div class="image-caption">Cardio Fitness</div>
+            </div>
+            <div class="image-item">
+                <img src="img3.png" alt="Mindful Recovery">
+                <div class="image-caption">Mindful Recovery</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notify Section -->
+    <section class="container">
+        <div class="notify-section">
+            <h2 class="section-title">Get Notified at Launch</h2>
+            <p class="section-subtitle">Be the first to know when we go live. Join our early access list for exclusive benefits and a special launch offer.</p>
+            
+            <form class="notify-form" id="notifyForm">
+                <input type="email" class="email-input" id="email" placeholder="Enter your email address" required>
+                <button type="submit" class="notify-button">Notify Me</button>
+            </form>
+            <p id="formMessage" style="margin-top: 15px; color: #00d4ff; font-weight: 600;"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2025 Rudraveer. All rights reserved. | Coming Soon</p>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            // Set the launch date (3 months from now)
+            const launchDate = new Date();
+            launchDate.setMonth(launchDate.getMonth() + 3);
+            
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
+            
+            // Calculate days, hours, minutes, seconds
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            // Update the countdown display
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+            
+            // If the countdown is over
+            if (timeLeft < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector('.countdown').innerHTML = "<div style='font-size: 2rem; font-weight: 700; color: #00d4ff;'>We're Live!</div>";
+            }
+        }
+        
+        // Initialize countdown
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Form submission
+        document.getElementById('notifyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('formMessage');
+            
+            // Simple validation
+            if (email && email.includes('@')) {
+                message.textContent = "Thank you! We'll notify you when we launch.";
+                message.style.color = "#00d4ff";
+                document.getElementById('email').value = '';
+                
+                // Reset message after 5 seconds
+                setTimeout(() => {
+                    message.textContent = '';
+                }, 5000);
+            } else {
+                message.textContent = "Please enter a valid email address.";
+                message.style.color = "#ff3366";
+                
+                // Reset message after 3 seconds
+                setTimeout(() => {
+                    message.textContent = '';
+                }, 3000);
+            }
+        });
+        
+        // Notify button click
+        document.getElementById('notifyBtn').addEventListener('click', function() {
+            document.getElementById('email').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('email').focus();
+        });
+        
+        // Add some interactive effects to image gallery
+        const imageItems = document.querySelectorAll('.image-item');
+        imageItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+    </script>
+</body>
+</html>
